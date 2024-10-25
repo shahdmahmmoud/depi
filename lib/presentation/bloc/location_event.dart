@@ -1,5 +1,3 @@
-// location_event.dart
-
 abstract class LocationEvent {}
 
 class FetchHotels extends LocationEvent {

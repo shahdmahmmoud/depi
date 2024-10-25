@@ -1,5 +1,7 @@
 import 'package:depi/data/repository/tripadvisor_repository.dart';
-import 'package:depi/data/model/location_model.dart'; // Adjust the import based on your location model
+import 'package:depi/data/model/location_model.dart';
+import 'package:depi/data/model/hotel_model.dart';
+import 'package:depi/data/model/hotel_details_model.dart';
 
 class SearchLocationUseCase {
   final TripAdvisorRepository repository;
@@ -7,7 +9,7 @@ class SearchLocationUseCase {
   SearchLocationUseCase(this.repository);
 
   /// Use for searching hotels
-  Future<List<dynamic>> callHotels(int pageNumber, String currencyCode) async {
+  Future<List<HotelModel>> callHotels(int pageNumber, String currencyCode) async {
     try {
       return await repository.searchHotels(pageNumber, currencyCode);
     } catch (e) {
@@ -16,18 +18,17 @@ class SearchLocationUseCase {
   }
 
   /// Use for searching hotels by location
-  Future<List<dynamic>> callHotelsByLocation(double latitude, double longitude,
-      int pageNumber, String currencyCode) async {
+  Future<List<HotelModel>> callHotelsByLocation(
+      double latitude, double longitude, int pageNumber, String currencyCode) async {
     try {
-      return await repository.searchHotelsByLocation(
-          latitude, longitude, pageNumber, currencyCode);
+      return await repository.searchHotelsByLocation(latitude, longitude, pageNumber, currencyCode);
     } catch (e) {
       throw Exception('Failed to fetch hotels by location: $e');
     }
   }
 
   /// Use for getting hotel details
-  Future<dynamic> callHotelDetails(String currency) async {
+  Future<HotelDetailsModel> callHotelDetails(String currency) async {
     try {
       return await repository.getHotelDetails(currency);
     } catch (e) {

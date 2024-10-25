@@ -1,5 +1,3 @@
-// location_state.dart
-
 abstract class LocationState {}
 
 class LocationInitial extends LocationState {}

@@ -1,10 +1,8 @@
-// lib/data/model/hotel_model.dart
-
 class HotelModel {
   final String id; // Unique identifier for the hotel
   final String name; // Name of the hotel
   final String address; // Address of the hotel
-  final String rating; // Rating of the hotel
+  final double rating; // Rating of the hotel (changed to double)
 
   HotelModel({
     required this.id,
@@ -19,8 +17,13 @@ class HotelModel {
       id: json['id'] ?? '', // Adjust based on actual JSON structure
       name: json['name'] ?? '',
       address: json['address'] ?? '',
-      rating:
-          json['rating']?.toString() ?? 'N/A', // Convert to string if necessary
+      rating: (json['rating'] ?? 0.0).toDouble(), // Ensure this is a double
     );
   }
+
+  @override
+  String toString() {
+    return 'HotelModel(id: $id, name: $name, rating: $rating)';
+  }
 }
+

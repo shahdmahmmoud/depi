@@ -1,5 +1,3 @@
-// lib/data/model/location_model.dart
-
 class LocationModel {
   final String name; // Name of the location
   final double latitude; // Latitude of the location
@@ -15,8 +13,13 @@ class LocationModel {
   factory LocationModel.fromJson(Map<String, dynamic> json) {
     return LocationModel(
       name: json['name'] ?? '',
-      latitude: json['latitude'] ?? 0.0,
-      longitude: json['longitude'] ?? 0.0,
+      latitude: (json['latitude'] ?? 0.0).toDouble(),
+      longitude: (json['longitude'] ?? 0.0).toDouble(),
     );
+  }
+
+  @override
+  String toString() {
+    return 'LocationModel(name: $name, latitude: $latitude, longitude: $longitude)';
   }
 }

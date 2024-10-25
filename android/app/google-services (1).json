@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95873248243",
+    "project_id": "depi-72510",
+    "storage_bucket": "depi-72510.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95873248243:android:b8ff2917f95b7c5e640086",
+        "android_client_info": {
+          "package_name": "com.example.depi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6vwYC5RxLX2RnNbO0T3ptUgPG7QjMe0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

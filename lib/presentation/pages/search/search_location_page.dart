@@ -15,8 +15,7 @@ class SearchLocationPage extends StatelessWidget {
           children: [
             TextField(
               onSubmitted: (query) {
-                BlocProvider.of<LocationBloc>(context)
-                    .add(FetchSearchLocation(query));
+                BlocProvider.of<LocationBloc>(context).add(FetchSearchLocation(query));
               },
               decoration: InputDecoration(
                 hintText: 'Search for locations or hotels',
@@ -31,11 +30,11 @@ class SearchLocationPage extends StatelessWidget {
                     return Center(child: CircularProgressIndicator());
                   } else if (state is LocationLoaded) {
                     return ListView.builder(
-                      itemCount: state.locations.length, // This should work now
+                      itemCount: state.locations.length,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          title: Text(state.locations[index]
-                              .toString()), // Adjust based on your model
+                          title: Text(state.locations[index].name), // Adjust based on your model
+                          subtitle: Text(state.locations[index].description), // Adjust based on your model
                         );
                       },
                     );

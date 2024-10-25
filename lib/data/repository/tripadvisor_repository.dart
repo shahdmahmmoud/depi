@@ -2,7 +2,6 @@ import 'package:depi/data/datasource/remote/tripadvisor_api.dart';
 import 'package:depi/data/model/location_model.dart';
 import 'package:depi/data/model/hotel_model.dart';
 import 'package:depi/data/model/hotel_details_model.dart';
-
 class TripAdvisorRepository {
   final TripAdvisorApi api;
 

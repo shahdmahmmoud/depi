@@ -16,20 +16,20 @@ class TripAdvisorApi {
       },
     );
 
+    print(response.body); // Add this line to inspect the response
+
     if (response.statusCode == 200) {
-      return json.decode(response.body)[
-          'data']; // Adjust based on the actual response structure
+      var responseData = json.decode(response.body);
+      return responseData['hotels']; // Adjust based on the actual response structure
     } else {
       throw Exception('Failed to load hotels');
     }
   }
 
   // Method to search hotels
-  Future<List<dynamic>> searchHotels(
-      int pageNumber, String currencyCode) async {
+  Future<List<dynamic>> searchHotels(int pageNumber, String currencyCode) async {
     final response = await http.get(
-      Uri.parse(
-          '$baseUrl/searchHotels?pageNumber=$pageNumber&currencyCode=$currencyCode'),
+      Uri.parse('$baseUrl/searchHotels?pageNumber=$pageNumber&currencyCode=$currencyCode'),
       headers: {
         'X-Rapidapi-Key': apiKey,
         'X-Rapidapi-Host': 'tripadvisor16.p.rapidapi.com',
@@ -37,20 +37,20 @@ class TripAdvisorApi {
       },
     );
 
+    print(response.body); // Add this line to inspect the response
+
     if (response.statusCode == 200) {
-      return json.decode(response.body)[
-          'data']; // Adjust based on the actual response structure
+      var responseData = json.decode(response.body);
+      return responseData['hotels']; // Adjust based on the actual response structure
     } else {
       throw Exception('Failed to search hotels');
     }
   }
 
   // Method to search hotels by location
-  Future<List<dynamic>> searchHotelsByLocation(double latitude,
-      double longitude, int pageNumber, String currencyCode) async {
+  Future<List<dynamic>> searchHotelsByLocation(double latitude, double longitude, int pageNumber, String currencyCode) async {
     final response = await http.get(
-      Uri.parse(
-          '$baseUrl/searchHotelsByLocation?latitude=$latitude&longitude=$longitude&pageNumber=$pageNumber&currencyCode=$currencyCode'),
+      Uri.parse('$baseUrl/searchHotelsByLocation?latitude=$latitude&longitude=$longitude&pageNumber=$pageNumber&currencyCode=$currencyCode'),
       headers: {
         'X-Rapidapi-Key': apiKey,
         'X-Rapidapi-Host': 'tripadvisor16.p.rapidapi.com',
@@ -58,9 +58,11 @@ class TripAdvisorApi {
       },
     );
 
+    print(response.body); // Add this line to inspect the response
+
     if (response.statusCode == 200) {
-      return json.decode(response.body)[
-          'data']; // Adjust based on the actual response structure
+      var responseData = json.decode(response.body);
+      return responseData['hotels']; // Adjust based on the actual response structure
     } else {
       throw Exception('Failed to search hotels by location');
     }
@@ -77,9 +79,11 @@ class TripAdvisorApi {
       },
     );
 
+    print(response.body); // Add this line to inspect the response
+
     if (response.statusCode == 200) {
-      return json.decode(response.body)[
-          'data']; // Adjust based on the actual response structure
+      var responseData = json.decode(response.body);
+      return responseData['hotel']; // Adjust based on the actual response structure
     } else {
       throw Exception('Failed to get hotel details');
     }
@@ -96,9 +100,11 @@ class TripAdvisorApi {
       },
     );
 
+    print(response.body); // Add this line to inspect the response
+
     if (response.statusCode == 200) {
-      return json.decode(response.body)[
-          'data']; // Adjust based on the actual response structure
+      var responseData = json.decode(response.body);
+      return responseData['locations']; // Adjust based on the actual response structure
     } else {
       throw Exception('Failed to search locations');
     }
